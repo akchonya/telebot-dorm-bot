@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, request
 from flask_sslify import SSLify
+from pillow_bot.func import pillow_draw
 
 
 # Loading the .env file
@@ -128,6 +129,29 @@ def vahta(message):
     img = open("image.jpg", 'rb')
     bot.send_photo(message.chat.id, img, 
                    caption="Прошу! Усе що знаю про графік наших (ваших) вахтерів:")
+
+
+
+# An admin panle to add pictures of vahters
+@bot.message_handler(commands=["draw"])
+def draw(message):
+    if message.chat.type == "private":
+        if message.from_user.id == int(ADMIN_ID):
+            msg = message.text.split(maxsplit=3)
+
+            # Validating an input
+            try:
+                char, w, h = msg[1], msg[2], msg[3]
+            except (IndexError, ValueError):
+                bot.send_message(ADMIN_ID, "something is wrong")
+                return    
+
+            if char not in ("biblio", "commie", "diana", "eblan", "lyarva"):
+                bot.send_message(ADMIN_ID, "wrong file name")
+                return
+
+            pillow_draw(char, w, h)
+            bot.send_message(ADMIN_ID, "done! check it out /vahta")
 
 
 if __name__ == '__main__':
