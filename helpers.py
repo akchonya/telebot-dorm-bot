@@ -3,7 +3,7 @@ from PIL import Image
 def pillow_draw(char, w, h):
     w = int(w)
     h = int(h)
-    img = Image.open(f"{char}.png")
+    img = Image.open(f"pillow_bot/{char}.png")
     img_w, img_h = img.size
 
 
