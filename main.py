@@ -32,7 +32,7 @@ def index():
     return "<h1>Test Dormitory Bot</h1>"
 
 
-# Setting a main route 
+# Setting a main route
 @app.route('/'+SECRET, methods=['POST'])
 def webhook():
     update = telebot.types.Update.de_json(request.stream.read().decode('utf-8'))
@@ -49,7 +49,7 @@ def start(m):
                      "вам посилання на статтю з усією інфою, команда /vahta " +
                      "підкаже вам графік вахтерів, а за допомогою команди " +
                      "/donate ви можете віддячити автору. \n\nСкарги і " +
-                     "пропозиції примаються у пп @FleshkaXDude", 
+                     "пропозиції примаються у пп @FleshkaXDude",
                      parse_mode='HTML')
 
 
@@ -65,7 +65,7 @@ def help(m):
 @bot.message_handler(commands=['donate'])
 def donate(m):
     bot.send_message(m.chat.id, "<b>Донати приймаються на карти:</b> " +
-                     "\nприват: 5168752084032468 \nмоно: 4441111136306531", 
+                     "\nприват: 5168752084032468 \nмоно: 4441111136306531",
                      parse_mode='HTML')
 
 
@@ -78,7 +78,7 @@ def faq(m):
 # Bunt command
 @bot.message_handler(commands=['bunt'])
 def bunt(m):
-    bot.send_sticker(m.chat.id, 
+    bot.send_sticker(m.chat.id,
                      sticker="CAACAgIAAxkBAAEYRLBjKfNf9QtXKpeiBrBcSp5BNP2rwAACKiEAAgnVUUlHhGyMxOT0wykE")
 
 
@@ -92,7 +92,7 @@ def write(m):
             bot.send_message(chat, msg, parse_mode='HTML')
         else:
             bot.send_message(chat, "чукча на флешці ікс дуд забула написати " +
-                             "зміст повідомлення, тому розважаю вас тут сам", 
+                             "зміст повідомлення, тому розважаю вас тут сам",
                              parse_mode='HTML')
 
 
@@ -116,17 +116,17 @@ def photo(message):
             file_info = bot.get_file(fileID)
             downloaded_file = bot.download_file(file_info.file_path)
 
-            with open("dorm_bot/dorm_bot/image.jpg", 'wb') as new_file:
+            with open("image.jpg", 'wb') as new_file:
                 new_file.write(downloaded_file)
 
-            bot.send_message(message.from_user.id, "the img is updated")
+            bot.send_message("257750513", "the img is updated")
 
 
-# Vahta command that sends a picture with the schedule 
+# Vahta command that sends a picture with the schedule
 @bot.message_handler(commands=['vahta'])
 def vahta(message):
     img = open("image.jpg", 'rb')
-    bot.send_photo(message.chat.id, img, 
+    bot.send_photo(message.chat.id, img,
                    caption="Прошу! Усе що знаю про графік наших (ваших) вахтерів:")
 
 
