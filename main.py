@@ -116,7 +116,7 @@ def photo(message):
             file_info = bot.get_file(fileID)
             downloaded_file = bot.download_file(file_info.file_path)
 
-            with open("dorm_bot/dorm_bot/image.jpg", 'wb') as new_file:
+            with open("image.jpg", 'wb') as new_file:
                 new_file.write(downloaded_file)
 
             bot.send_message(message.from_user.id, "the img is updated")
