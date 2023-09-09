@@ -117,7 +117,7 @@ def photo(message):
             file_info = bot.get_file(fileID)
             downloaded_file = bot.download_file(file_info.file_path)
 
-            with open("image.jpg", 'wb') as new_file:
+            with open("pillow_bot/vahta.jpg", 'wb') as new_file:
                 new_file.write(downloaded_file)
 
             bot.send_message(message.from_user.id, "the img is updated")
@@ -126,7 +126,7 @@ def photo(message):
 # Vahta command that sends a picture with the schedule 
 @bot.message_handler(commands=['vahta'])
 def vahta(message):
-    img = open("image.jpg", 'rb')
+    img = open("pillow_bot/vahta.jpg", 'rb')
     bot.send_photo(message.chat.id, img, 
                    caption="Прошу! Усе що знаю про графік наших (ваших) вахтерів:")
 
