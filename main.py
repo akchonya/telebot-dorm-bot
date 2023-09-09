@@ -111,7 +111,7 @@ def pin(m):
 @bot.message_handler(content_types=['photo'])
 def photo(message):
     if message.chat.type == "private":
-        if message.from_user.id == ADMIN_ID:
+        if message.from_user.id == 257750513:
             fileID = message.photo[-1].file_id
             file_info = bot.get_file(fileID)
             downloaded_file = bot.download_file(file_info.file_path)
