@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, request
 from flask_sslify import SSLify
-from pillow_bot.func import pillow_draw
+from helpers import pillow_draw
 
 
 # Loading the .env file
