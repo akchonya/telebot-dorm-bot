@@ -9,11 +9,12 @@ from flask_sslify import SSLify
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 SECRET = os.getenv("SECRET")
+print(SECRET)
 ADMIN_ID = os.getenv("ADMIN_ID")
 DORM_ID = os.getenv("DORM_ID")
 
 # Creating a URL
-url = 'xvichoir.pythonanywhere.com/' + SECRET
+url = "xvichoir.pythonanywhere.com/" + SECRET
 
 # Setting a webhook
 bot = telebot.TeleBot(TOKEN, threaded=False)
