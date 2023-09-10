@@ -120,7 +120,7 @@ def photo(message):
             with open("pillow_bot/vahta.jpg", 'wb') as new_file:
                 new_file.write(downloaded_file)
 
-            bot.send_message(message.from_user.id, "the img is updated")
+            bot.send_message(message.from_user.id, "the vahta bg is updated")
 
 
 # Vahta command that sends a picture with the schedule 
