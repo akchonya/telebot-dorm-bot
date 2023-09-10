@@ -1,6 +1,6 @@
 from PIL import Image
 
-def pillow_draw(char, w, h):
+def pillow_draw(char, h, w):
     w = int(w)
     h = int(h)
     img = Image.open(f"pillow_bot/{char}.png")
