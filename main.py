@@ -131,7 +131,6 @@ def vahta(message):
                    caption="Прошу! Усе що знаю про графік наших (ваших) вахтерів:")
 
 
-
 # An admin panle to add pictures of vahters
 @bot.message_handler(commands=["draw"])
 def draw(message):
@@ -152,6 +151,14 @@ def draw(message):
 
             pillow_draw(char, w, h)
             bot.send_message(ADMIN_ID, "done! check it out /vahta")
+
+
+# A draw reminder for admin
+@bot.message_handler(commands=["draw"])
+def draw(message):
+    if message.chat.type == "private":
+        if message.from_user.id == int(ADMIN_ID):
+            bot.send_message(ADMIN_ID, "biblio, commie, diana, eblan, lyarva")
 
 
 if __name__ == '__main__':
