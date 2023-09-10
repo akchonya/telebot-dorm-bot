@@ -154,8 +154,8 @@ def draw(message):
 
 
 # A draw reminder for admin
-@bot.message_handler(commands=["draw"])
-def draw(message):
+@bot.message_handler(commands=["draw_help"])
+def draw_help(message):
     if message.chat.type == "private":
         if message.from_user.id == int(ADMIN_ID):
             bot.send_message(ADMIN_ID, "biblio, commie, diana, eblan, lyarva")
