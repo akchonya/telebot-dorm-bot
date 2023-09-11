@@ -161,6 +161,18 @@ def draw_help(message):
             bot.send_message(ADMIN_ID, "biblio, commie, diana, eblan, lyarva")
 
 
+@bot.message_handler(content_types=["new_chat_members"])
+def handler_new_member(message):
+    user_name = message.new_chat_member.first_name
+    bot.send_message(message.chat.id, "привіт, {user_name}!" +
+                     "\nможеш подивитися список доступних команд " +
+                     "в полі набору повідомлення. Рекомендую /faq " +
+                     "до прочитання.")
+    bot.send_sticker(message.chat.id, 
+                     sticker="AAMCAQADGQEAASXiy2T_eESVFO9t_NHcv0SEQE-cuEUeAAKNAQACdjd2P2t4fr2jjFapAQAHbQADMAQ")
+
+
+
 if __name__ == '__main__':
     app.run()
 
