@@ -163,7 +163,7 @@ def draw_help(message):
 
 @bot.message_handler(content_types=["new_chat_members"])
 def handler_new_member(message):
-    user_name = message.new_chat_member.first_name
+    user_name = message.new_chat_members[0].first_name
     bot.send_message(message.chat.id, "привіт, {user_name}!" +
                      "\nможеш подивитися список доступних команд " +
                      "в полі набору повідомлення. Рекомендую /faq " +
