@@ -169,7 +169,7 @@ def handler_new_member(message):
                      "в полі набору повідомлення. Рекомендую /faq " +
                      "до прочитання.")
     bot.send_sticker(message.chat.id, 
-                     sticker="AAMCAQADGQEAASXiy2T_eESVFO9t_NHcv0SEQE-cuEUeAAKNAQACdjd2P2t4fr2jjFapAQAHbQADMAQ")
+                     sticker="CAACAgEAAxkBAAEl4stk_3hElRTvbfzR3L9EhEBPnLhFHgACjQEAAnY3dj9reH69o4xWqTAE")
 
 
 
