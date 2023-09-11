@@ -164,8 +164,8 @@ def draw_help(message):
 @bot.message_handler(content_types=["new_chat_members"])
 def handler_new_member(message):
     user_name = message.new_chat_members[0].first_name
-    bot.send_message(message.chat.id, f"привіт, {user_name}!" +
-                     "\nможеш подивитися список доступних команд " +
+    bot.send_message(message.chat.id, f"<b>привіт, {user_name}!</b>" +
+                     "\n\nможеш подивитися список доступних команд " +
                      "в полі набору повідомлення. Рекомендую /faq " +
                      "до прочитання.")
     bot.send_sticker(message.chat.id, 
