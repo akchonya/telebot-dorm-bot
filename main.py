@@ -166,7 +166,7 @@ def handler_new_member(message):
     user_name = message.new_chat_members[0].first_name
     bot.send_message(message.chat.id, f"<b>привіт, {user_name}!</b>" +
                      "\n\nможеш подивитися список доступних команд " +
-                     "в полі набору повідомлення. Рекомендую /faq " +
+                     "в полі набору повідомлення. рекомендую /faq " +
                      "до прочитання.",
                      parse_mode="HTML")
     bot.send_sticker(message.chat.id, 
