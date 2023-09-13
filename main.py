@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, request
 from flask_sslify import SSLify
-from helpers import pillow_draw
+from helpers import pillow_draw, alerts
 
 
 # Loading the .env file
@@ -13,6 +13,7 @@ SECRET = os.getenv("SECRET")
 print(SECRET)
 ADMIN_ID = os.getenv("ADMIN_ID")
 DORM_ID = os.getenv("DORM_ID")
+ALERTS_TOKEN = os.getenv("ALERTS_TOKEN")
 
 # Creating a URL
 url = "xvichoir.pythonanywhere.com/" + SECRET
@@ -171,6 +172,14 @@ def handler_new_member(message):
                      parse_mode="HTML")
     bot.send_sticker(message.chat.id, 
                      sticker="CAACAgEAAxkBAAEl4stk_3hElRTvbfzR3L9EhEBPnLhFHgACjQEAAnY3dj9reH69o4xWqTAE")
+
+
+# Test alerts function
+@bot.message_handler(commands=["alerts"])
+def alerts_inf(message):
+    if message.chat.type == "private":
+        if message.from_user.id == int(ADMIN_ID):
+            bot.send_message(ADMIN_ID, alerts(ALERTS_TOKEN))
 
 
 
