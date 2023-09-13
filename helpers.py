@@ -21,7 +21,7 @@ def pillow_draw(char, h, w):
 async def alerts(ALERTS_TOKEN):
     alerts_client = AsyncAlertsClient(token=ALERTS_TOKEN)
     active_alerts = await alerts_client.get_air_raid_alert_statuses_by_oblast()
-    zapor = str([alert for alert in active_alerts if alert.location_title == "Запорізька область"][0])[:-18]
-    return zapor
+    # zapor = str([alert for alert in active_alerts if alert.location_title == "Запорізька область"][0])[:-18]
+    return active_alerts
 
 
