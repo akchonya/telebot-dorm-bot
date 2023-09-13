@@ -25,5 +25,3 @@ async def alerts(ALERTS_TOKEN):
     return zapor
 
 
-asyncio.run(alerts())
-
