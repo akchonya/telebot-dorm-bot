@@ -1,6 +1,5 @@
 import time
-import asyncio
-from alerts_in_ua import AsyncClient as AsyncAlertsClient
+from alerts_in_ua import Client as AlertsClient
 from PIL import Image
 
 
@@ -17,11 +16,10 @@ def pillow_draw(char, h, w):
     background.paste(img, offset, img)
     background.save("pillow_bot/vahta.jpg")
 
-
-async def alerts(ALERTS_TOKEN):
-    alerts_client = AsyncAlertsClient(token=ALERTS_TOKEN)
-    active_alerts = await alerts_client.get_air_raid_alert_statuses_by_oblast()
-    # zapor = str([alert for alert in active_alerts if alert.location_title == "Запорізька область"][0])[:-18]
-    return active_alerts
+def alerts(ALERTS_TOKEN):
+    alerts_client = AlertsClient(token=ALERTS_TOKEN)
+    active_alerts = alerts_client.get_air_raid_alert_statuses_by_oblast()
+    zapor = str([alert for alert in active_alerts if alert.location_title == "Запорізька область"][0])[:-18]
+    return zapor
 
 
